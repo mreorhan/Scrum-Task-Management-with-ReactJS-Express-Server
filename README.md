@@ -11,12 +11,16 @@ Open command line and apply that steps:
   git clone https://github.com/mreorhan/Scrum-Task-Management-with-ReactJS-Express-Server/ scrumtaskmanagement
 
 2. Step
-cd scrumtaskmanagement npm start
+cd scrumtaskmanagement
+npm install
+npm start
 
 3. Step (open new command line)
- cd scrumtaskmanagement/client npm start
+ cd scrumtaskmanagement/client
+ npm install
+ npm start
 
-4. step
+4. Step
  You can start working on which explorer window.
 ```
 
