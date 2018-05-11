@@ -1,5 +1,7 @@
-# Scrum-Task-Management
+# Scrum Task Management
 Scrum Masters can create tasks for employees in this project.
+
+This project powered by React.JS and Express.
 
 Open command line and apply that steps:
 -----------
@@ -36,4 +38,4 @@ POST: http://localhost:3000/tasks    --> Add new task
   Contributing
 ------------
 
-See [Contributing](CONTRIBUTING.md).
+See [Contributors](CONTRIBUTORS.md).
