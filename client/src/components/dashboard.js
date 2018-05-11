@@ -2,8 +2,8 @@ import React,{Component} from 'react'
 import axios from 'axios'
 import Task from './task'
 import Tooltips from './tooltip'
-import $ from 'jquery'
 import AddUser from './forms/addUser'
+
 class Dashboard extends Component{
   constructor(props, context) {
     super(props, context);
@@ -15,37 +15,19 @@ class Dashboard extends Component{
       loading:true
     };
     
-    this.getPopularData= this.getPopularData.bind(this)
+    this.getData = this.getData.bind(this)
   }
   show = dimmer => () => this.setState({ dimmer, open: true })
   close = () => this.setState({ open: false })
 
   componentDidMount = ()=>{
-    this.getPopularData();
+    this.getData();
     setInterval(() => {
-      this.getPopularData();
+      this.getData();
   }, 5000);
-    
-    
-$('li').bind('drag', function(event) {
-  event.dataTransfer.or.setData("text/plain",  event.target.getAttribute('id'));
-});
 
-$('ul').bind('dragover', function(event) {
-  event.preventDefault();
-});
-$('li').bind('drop', function(event) {
-  return false;
-});
-
-$('ul').bind('drop', function(event) {
-  event.preventDefault();
-  var listitem = event.dataTransfer.getData("text/plain");
-  event.target.appendChild(document.getElementById(listitem));
-
-});
   }
-  getPopularData = () => {
+  getData = () => {
     axios.get('/tasks')
     .then((r)=> {
         this.setState({
@@ -115,11 +97,12 @@ $('ul').bind('drop', function(event) {
                       </div>
                         <div className="row">
                           <div className="col-sm mcell mcolor1">
-                          <ul id="todo">
+                          <ul>
                             <div className="mcell-title story">
                                 Backlog
                                 <Tooltips id="1" content="You can do what you want to do with this column" placement="top" />                            </div>
                             <Task tasks={this.state.tasks} loading={this.state.loading} filter="1"/>
+                            <li className="mcell-task">test</li>
                               </ul>
                           </div>
                           <div className="col-sm mcell mcolor2">
@@ -133,7 +116,7 @@ $('ul').bind('drop', function(event) {
                           </div>
                           
                           <div className="col-sm mcell mcolor3">
-                              <ul id="done">
+                              <ul>
                               <div className="mcell-title story">
                                 In Progress
                                 <Tooltips id="3" content="You can do what you want to do with this column" placement="top" />                              </div>
