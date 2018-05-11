@@ -8,12 +8,12 @@ Open command line and apply that steps:
 -----------
 ```
 1. Step
-  git clone https://github.com/mreorhan/Scrum-Task-Management-with-ReactJS-Express-Server/ scrumtaskmanagement
+ git clone https://github.com/mreorhan/Scrum-Task-Management-with-ReactJS-Express-Server/ scrumtaskmanagement
 
 2. Step
-cd scrumtaskmanagement
-npm install
-npm start
+ cd scrumtaskmanagement
+ npm install
+ npm start
 
 3. Step (open new command line)
  cd scrumtaskmanagement/client
@@ -27,18 +27,18 @@ npm start
 
 HTTP Request
 -----------
-GET: http://localhost:3000/tasks     --> Show all tasks
+GET: http://localhost:5000/tasks     --> Show all tasks
 
-POST: http://localhost:3000/tasks    --> Add new task
+POST: http://localhost:5000/tasks    --> Add new task
 [headers]:
-{
-  title:        string *required*,
-  content:      string,
-  status:       number *1,2,3,4*,
-  dueDate:      Date,
-  createdBy:    Object.Id
-  contributors: Object.Id
-  }
+	{
+		title:        string *required*,
+		content:      string,
+		status:       number *1,2,3,4*,
+		dueDate:      Date,
+		createdBy:    Object.Id
+		contributors: Object.Id
+	}
   
   Contributing
 ------------
