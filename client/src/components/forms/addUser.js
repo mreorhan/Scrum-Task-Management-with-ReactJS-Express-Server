@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter,Input,FormGroup,Label } from 'reactstrap';
-import moment from 'moment'
 import axios from 'axios'
 
 class AddUser extends React.Component {

@@ -14,7 +14,8 @@ class AddModal extends React.Component {
       createdBy:'5af1921c0fe5703dd4a463ec',
       dueDate:'',
       status:this.props.status,
-      loading:false
+      loading:false,
+      users:[]
     };
     
     this.toggle = this.toggle.bind(this);
@@ -22,9 +23,6 @@ class AddModal extends React.Component {
   componentDidMount(){
     moment.locale('tr');
     this.changeColumnTitle()
-  }
-  handleChange = event => {
-    this.setState({ name: event.target.value });
   }
   changeColumnTitle = number=>{
     let newTitle;
@@ -45,9 +43,24 @@ class AddModal extends React.Component {
      })
      console.log(this.state.dueDate)
 }
-
+getUsers(){
+  axios.get('/users')
+  .then((r)=> {
+      this.setState({
+          users: r.data,
+          err:''
+      })
+  })
+  .then((r)=>{
+    console.log(this.state.users)
+  })
+  .catch((e)=>{
+      this.setState({
+          err: e
+      })
+  })
+}
   handleClick = event => {
-    
     axios.post('/tasks', {
       title:this.state.title,
       content:this.state.content,
@@ -77,13 +90,22 @@ class AddModal extends React.Component {
     
   }
   toggle() {
+    this.getUsers();
     this.setState({
       modal: !this.state.modal
     });
   }
 
   render() {
-
+    const {users} = this.state;
+    let userContent;
+    if(!users)
+      userContent = <option value="">Loading...</option>
+    else{
+      userContent = users.map((user,index)=>(
+              <option key={index} value={user._id}>{user.name + " " + user.lastName}</option>
+      ))
+    }
     return (
       <div>
         <i className="fas fa-plus-circle" onClick={this.toggle}></i>
@@ -99,11 +121,10 @@ class AddModal extends React.Component {
           <Input type="textarea" name="content" id="content" onChange={this.handleInput.bind(this)}/>
         </FormGroup>
         <FormGroup>
-            <Label for="contributors">Contribute to:</Label>
+            <Label for="contributors">Assign to:</Label>
             <Input type="select" name="contributors" id="contributors" onChange={this.handleInput.bind(this)}>
-              <option value="">Choose:</option>
-              <option value="5af18ffe0fe5703dd4a463e6">Emre ORHAN</option>
-              <option value="5af19831a689cf330c5d3391">Oğuzhan ÇETİNKAYA</option>
+                <option value="">Choose:</option>
+                {userContent}
             </Input>
           </FormGroup>
               <hr/>

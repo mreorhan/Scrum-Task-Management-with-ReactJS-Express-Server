@@ -42,7 +42,7 @@ api = id =>{
             <img alt={i.contributors[0].name + ' '+i.contributors[0].lastName } title={i.contributors[0].name + ' '+i.contributors[0].lastName } src={'assets/img/' + i.contributors[0].profilePhoto}/>
           </span>
         </div>
-        <ModalExampleDimmer content={i}/>
+        <ModalExampleDimmer propContent={i}/>
         </li>
       ))
     }

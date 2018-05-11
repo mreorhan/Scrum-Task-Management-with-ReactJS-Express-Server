@@ -4,7 +4,7 @@ import Task from './task'
 import Tooltips from './tooltip'
 import $ from 'jquery'
 import AddUser from './forms/addUser'
-class Body extends Component{
+class Dashboard extends Component{
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -21,9 +21,10 @@ class Body extends Component{
   close = () => this.setState({ open: false })
 
   componentDidMount = ()=>{
+    this.getPopularData();
     setInterval(() => {
       this.getPopularData();
-  }, 2000);
+  }, 5000);
     
     
 $('li').bind('drag', function(event) {
@@ -158,4 +159,4 @@ $('ul').bind('drop', function(event) {
         )
     }
 }
-export default Body
+export default Dashboard
