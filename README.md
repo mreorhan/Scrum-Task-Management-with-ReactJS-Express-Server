@@ -1,5 +1,6 @@
 # Scrum Task Management
-Scrum Masters can create tasks for employees in this project.
+
+[![Version][npm-image]][npm-url]  Scrum Masters can create tasks for employees in this project.
 
 This project powered by React.JS and Express.
 
@@ -39,3 +40,6 @@ POST: http://localhost:3000/tasks    --> Add new task
 ------------
 
 See [Contributors](CONTRIBUTORS.md).
+
+[npm-image]: https://img.shields.io/npm/v/react-toastr.svg?style=flat-square
+[npm-url]: https://www.npmjs.org/package/react-toastr
