@@ -2,24 +2,23 @@
 Scrum Masters can create tasks for employees in this project.
 
 Open command line and apply that steps:
-1. Step
-git clone https://github.com/mreorhan/Scrum-Task-Management-with-ReactJS-Express-Server/ scrumtaskmanagement
+```
+1. Step →→
+  git clone https://github.com/mreorhan/Scrum-Task-Management-with-ReactJS-Express-Server/ scrumtaskmanagement
 
-2.Step
-cd scrumtaskmanagement
-npm start
+2. Step <br/>
+cd scrumtaskmanagement npm start
 
-3.Step (open new command line)
-cd scrumtaskmanagement/client
-npm start
+3. Step (open new command line)<br/>
+ cd scrumtaskmanagement/client npm start
 
-4.step 
-You can start working on which explorer window.
+4. step<br/>
+ You can start working on which explorer window.
+```
 
 
--------
-# HTTP Request
-
+HTTP Request
+-----------
 GET: http://localhost:3000/tasks     --> Show all tasks
 
 POST: http://localhost:3000/tasks    --> Add new task
@@ -32,3 +31,8 @@ POST: http://localhost:3000/tasks    --> Add new task
   createdBy:    Object.Id
   contributors: Object.Id
   }
+  
+  Contributing
+------------
+
+See [Contributing](CONTRIBUTING.md).
