@@ -24,6 +24,8 @@ router.get('/',(req,res,next)=>{
 		res.json(err);
 	})
 })
+//User Update
+
 
 //User silme
 router.delete('/delete/:id',(req,res)=>{

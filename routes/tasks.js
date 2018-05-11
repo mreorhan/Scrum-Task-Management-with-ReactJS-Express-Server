@@ -57,8 +57,9 @@ router.get('/',(req,res)=>{
           title:'$title',
           status:'$status',
           date:'$date',
-		  dueDate:'$dueDate',
-		  createdBy:'$createdBy'
+          color:'$color',
+          dueDate:'$dueDate',
+          createdBy:'$createdBy'
         },
         contributors:{
         $push:'$contributors'
@@ -72,7 +73,8 @@ router.get('/',(req,res)=>{
         title:'$_id.title',
         status:'$_id.status',
         date:'$_id.date',
-		dueDate:'$_id.dueDate',
+        dueDate:'$_id.dueDate',
+        color:'$_id.color',
         createdBy: '$_id.createdBy',
         contributors: '$contributors',
       }
