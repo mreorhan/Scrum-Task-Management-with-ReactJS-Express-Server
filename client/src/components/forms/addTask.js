@@ -14,6 +14,7 @@ class AddModal extends React.Component {
       createdBy:'5af1921c0fe5703dd4a463ec',
       dueDate:'',
       status:this.props.status,
+      color:'',
       loading:false,
       users:[]
     };
@@ -67,6 +68,7 @@ getUsers(){
       status:this.props.status,
       contributors:this.state.contributors,
       dueDate:this.state.dueDate,
+      color:this.state.color,
       createdBy:this.state.createdBy
     })
     .then((response)=> {
@@ -125,6 +127,15 @@ getUsers(){
             <Input type="select" name="contributors" id="contributors" onChange={this.handleInput.bind(this)}>
                 <option value="">Choose:</option>
                 {userContent}
+            </Input>
+          </FormGroup>
+        <FormGroup>
+            <Label for="color">Task Color:</Label>
+            <Input type="select" name="color" id="color" onChange={this.handleInput.bind(this)}>
+                <option value="">Choose:</option>
+                <option value="colorBlue">Red</option>
+                <option value="colorGreen">Green</option>
+                <option value="colorGrey">Grey</option>
             </Input>
           </FormGroup>
               <hr/>

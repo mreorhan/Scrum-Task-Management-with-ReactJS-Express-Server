@@ -9,7 +9,8 @@ class ModalExample extends React.Component {
       modal: false,
       title:this.props.propContent.title,
       content:this.props.propContent.content,
-      status:this.props.propContent.status
+      status:this.props.propContent.status,
+      color:this.props.propContent.color
     };
 
     this.toggle = this.toggle.bind(this);
@@ -52,10 +53,10 @@ handleClick = id => {
 
   render() {
       let {title,content,status} = this.state;
-      const {propContent} = this.props;
+      const {propContent,classType} = this.props;
     return (
       <div>
-        <Button color="primary" size="sm" onClick={this.toggle}><i className="fas fa-arrow-alt-circle-right"/></Button>
+        <Button color="primary" size="sm" className={classType} onClick={this.toggle}><i className="fas fa-arrow-alt-circle-right"/></Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>
           <Label for="title">Task Title:</Label><Input type="text" name="title" value={title} onChange={this.handleInput.bind(this)}/>

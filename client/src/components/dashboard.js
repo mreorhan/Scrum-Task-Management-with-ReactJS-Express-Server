@@ -102,7 +102,6 @@ class Dashboard extends Component{
                                 Backlog
                                 <Tooltips id="1" content="You can do what you want to do with this column" placement="top" />                            </div>
                             <Task tasks={this.state.tasks} loading={this.state.loading} filter="1"/>
-                            <li className="mcell-task">test</li>
                               </ul>
                           </div>
                           <div className="col-sm mcell mcolor2">

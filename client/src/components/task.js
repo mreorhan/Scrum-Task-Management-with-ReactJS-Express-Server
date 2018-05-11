@@ -4,6 +4,7 @@ import ModalExampleDimmer from './modal'
 import axios from 'axios'
 import $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
+import Loader from './loader';
 class Task extends Component{
   componentWillReceiveProps(){
   
@@ -25,12 +26,15 @@ class Task extends Component{
       }
   });
   }
-api = id =>{
+api = id => {
   axios.delete('/tasks/delete/'+id)
   .then(function (response) {
     if(response.status==="1")
       alert("ok")
     console.log(response);
+  })
+  .then(()=>{
+    
   })
   .catch(function (error) {
     console.log(error);
@@ -42,16 +46,13 @@ api = id =>{
       let content;
       if (loading) {
         content = <div className="loader">
-            <svg className="circular" viewBox="25 25 50 50">
-              <circle className="path" cx="50" cy="50" r="20" fill="none" strokeWidth="4" strokeMiterlimit="10"/>
-            </svg>
+         <Loader/>
           </div>;
       }
       else{
         content = 
         tasks.filter(i=>i.status===Number(filter))
         .map((i,index)=>{
-          if(i._id)
           return(
             <li id={i._id} className="mcell-task" key={index}>
               <span className="task-name">
@@ -65,11 +66,10 @@ api = id =>{
                 <img alt={i.contributors[0].name + ' '+i.contributors[0].lastName } title={i.contributors[0].name + ' '+i.contributors[0].lastName } src={'assets/img/' + i.contributors[0].profilePhoto}/>
               </span>
             </div>
-            <ModalExampleDimmer propContent={i}/>
+            <div className={i.color}/>
+            <ModalExampleDimmer propContent={i} classType="btnDashboard"/>
             </li>
           )
-          else
-          return <div>Bo </div>
         })
     }
     return(
