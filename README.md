@@ -39,6 +39,8 @@ POST: http://localhost:5000/tasks    --> Add new task
 		createdBy:    Object.Id
 		contributors: Object.Id
 	}
+
+GET: http://localhost:3000/users   --> Show all users
   
   Contributing
 ------------
