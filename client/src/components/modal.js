@@ -21,7 +21,7 @@ class ModalExample extends React.Component {
       const {content} = this.props;
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}><i className="fas fa-arrow-alt-circle-right"/></Button>
+        <Button color="primary" size="sm" onClick={this.toggle}><i className="fas fa-arrow-alt-circle-right"/></Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>
           <Label for="taskDetails">Task Details:</Label><Input type="text" name="text" id="taskTitle" value={content.title}/>

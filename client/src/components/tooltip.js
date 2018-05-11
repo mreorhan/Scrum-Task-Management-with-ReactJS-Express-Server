@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { Tooltip } from 'reactstrap';
-import AddModal from './addModal';
+import AddModal from './forms/addTask';
 
 class Tooltips extends Component {
   constructor(props) {

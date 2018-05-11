@@ -1,9 +1,9 @@
 import React,{Component} from 'react'
 import axios from 'axios'
-import moment from 'moment'
 import Task from './task'
-import Tooltips from './tooltip';
-import $ from 'jquery'; 
+import Tooltips from './tooltip'
+import $ from 'jquery'
+import AddUser from './forms/addUser'
 class Body extends Component{
   constructor(props, context) {
     super(props, context);
@@ -45,7 +45,7 @@ $('ul').bind('drop', function(event) {
 });
   }
   getPopularData = () => {
-    axios.get('http://localhost:3000/tasks')
+    axios.get('/tasks')
     .then((r)=> {
         this.setState({
             tasks: r.data,
@@ -103,7 +103,7 @@ $('ul').bind('drop', function(event) {
                     <div className="searchbar">
                       <input type="text" className="search" placeholder="Ara..."/>
                     </div>
-                    <div className="profilewidget"></div>
+                    <div className="profilewidget"><AddUser/></div>
                   </div>
                 </header>
               

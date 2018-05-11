@@ -5,23 +5,16 @@ import axios from 'axios'
 class Task extends Component{
 
 api = id =>{
-  axios.delete('http://localhost:3000/tasks/delete/'+id)
+  axios.delete('/tasks/delete/'+id)
   .then(function (response) {
+    if(response.status==="1")
+      alert("ok")
     console.log(response);
   })
   .catch(function (error) {
     console.log(error);
   });
 
-}
-onCli(id){
-  axios.delete(`http://localhost:3000/tasks/delete/${id}`)
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
 }
   render(){
     const {tasks,loading,filter} = this.props;
@@ -35,12 +28,12 @@ onCli(id){
       }
       else{
         content = 
-        tasks.filter(i=>i.status==filter)
+        tasks.filter(i=>i.status===Number(filter))
         .map((i,index)=>(
         <li key={index} id={`item${index+5}`} className="mcell-task" draggable="true" data-toggle="modal" data-target="#showdetails">
           <span className="task-name">
             <span>{i.title}</span>
-            <i id="delete" className="fas fa-times" onClick={this.onCli()}></i>
+            <i id="delete" className="fas fa-times" onClick={() => this.api(i._id)}></i>
           </span>
           <span className="task-details">{i.content}</span>
           <div>
