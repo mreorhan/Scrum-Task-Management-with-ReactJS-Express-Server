@@ -28,7 +28,16 @@ const TaskSchema = new Schema({
 	dueDate:{
 		type:Date,
         default:Date.now
-	}
+    },
+    color:{
+        type:String,
+        default:"#2196f3"
+    },
+    storyId:{
+        type:Number,
+        default:'1',
+        required:true
+    }
 })
 
 module.exports = mongoose.model('task',TaskSchema);
