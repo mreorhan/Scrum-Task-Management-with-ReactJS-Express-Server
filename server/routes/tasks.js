@@ -34,8 +34,13 @@ router.get('/count',(req,res)=>{
 
 
 //taskları ve contributorsunu yazar
-router.get('/',(req,res)=>{
+router.get('/:id',(req,res)=>{
   const promise = Task.aggregate([
+    {
+      $match:{
+        storyId:  parseInt(req.params.id)
+      }
+    },
     {
       $lookup:{
         from:'users',

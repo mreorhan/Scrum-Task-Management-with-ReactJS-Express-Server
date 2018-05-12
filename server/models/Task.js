@@ -35,7 +35,6 @@ const TaskSchema = new Schema({
     },
     storyId:{
         type:Number,
-        default:'1',
         required:true
     }
 })
