@@ -63,7 +63,7 @@ api = id => {
               <div>
               <span className="task-due">{moment(i.dueDate).format("DD.MM.YYYY")}</span>
               <span className="task-contributors">
-                <img alt={i.contributors[0].name + ' '+i.contributors[0].lastName } title={i.contributors[0].name + ' '+i.contributors[0].lastName } src={'assets/img/' + i.contributors[0].profilePhoto}/>
+                <img alt={i.contributors[0].name + ' '+i.contributors[0].lastName } title={i.contributors[0].name + ' '+i.contributors[0].lastName } src={'/assets/img/' + i.contributors[0].profilePhoto}/>
               </span>
             </div>
             <div className={i.color}/>

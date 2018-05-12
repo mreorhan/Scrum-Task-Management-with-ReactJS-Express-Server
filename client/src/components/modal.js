@@ -79,7 +79,7 @@ handleClick = id => {
               <i className="fas fa-user"></i> Created by: {propContent.createdBy}
           </ModalBody>
           <ModalFooter>
-          <img height="35" alt={propContent.contributors[0].name + ' '+propContent.contributors[0].lastName } title={propContent.contributors[0].name + ' '+propContent.contributors[0].lastName } src={'assets/img/' + propContent.contributors[0].profilePhoto}/>
+          <img height="35" alt={propContent.contributors[0].name + ' '+propContent.contributors[0].lastName } title={propContent.contributors[0].name + ' '+propContent.contributors[0].lastName } src={'/assets/img/' + propContent.contributors[0].profilePhoto}/>
             <Button color="primary" onClick={()=>this.handleClick(propContent._id)}>Update</Button>
             <Button color="secondary" onClick={this.toggle}>Close</Button>
           </ModalFooter>

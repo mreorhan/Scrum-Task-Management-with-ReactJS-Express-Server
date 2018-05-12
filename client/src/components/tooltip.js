@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { Tooltip } from 'reactstrap';
-import AddModal from './forms/addTask';
+import AddTask from './forms/addTask';
 
 class Tooltips extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Tooltips extends Component {
           {this.props.content}
         </Tooltip>
         
-        <AddModal status={this.props.id}/>
+        <AddTask storyType={this.props.storyType} status={this.props.id}/>
       </span>
     );
   }

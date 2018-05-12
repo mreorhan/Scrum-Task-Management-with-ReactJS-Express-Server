@@ -15,6 +15,7 @@ class AddModal extends React.Component {
       dueDate:'',
       status:this.props.status,
       color:'',
+      storyId:this.props.storyType,
       loading:false,
       users:[]
     };
@@ -69,6 +70,7 @@ getUsers(){
       contributors:this.state.contributors,
       dueDate:this.state.dueDate,
       color:this.state.color,
+      storyId:this.state.storyId,
       createdBy:this.state.createdBy
     })
     .then((response)=> {

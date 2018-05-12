@@ -1,9 +1,10 @@
 import React,{Component} from 'react'
 import axios from 'axios'
-import Task from './task'
-import Tooltips from './tooltip'
+import {Link} from 'react-router'
 import AddUser from './forms/addUser'
-
+import Story from './story'
+import AddStory from './forms/addStory';
+import Loader from './loader'
 class Dashboard extends Component{
   constructor(props, context) {
     super(props, context);
@@ -11,8 +12,11 @@ class Dashboard extends Component{
       open: false,
       show: true,
       tasks:[],
+      stories:[],
       err:'',
-      loading:true
+      err2:'',
+      loading:true,
+      loadingStory:true
     };
     
     this.getData = this.getData.bind(this)
@@ -21,14 +25,35 @@ class Dashboard extends Component{
   close = () => this.setState({ open: false })
 
   componentDidMount = ()=>{
+    this.getStoryDetails();
     this.getData();
     setInterval(() => {
       this.getData();
-  }, 5000);
+  }, 2000);
 
   }
+  getStoryDetails = () => {
+    axios.get(`/story`)
+    .then((r)=> {
+        this.setState({
+            stories: r.data,
+            err2:''
+        })
+    })
+    .then(()=>{
+      this.setState({
+        loadingStory:false
+    })
+  })
+    .catch((e)=>{
+        this.setState({
+            err2: e
+        })
+    })
+   
+  }
   getData = () => {
-    axios.get('/tasks')
+    axios.get(`/tasks/${this.props.params.id}`)
     .then((r)=> {
         this.setState({
             tasks: r.data,
@@ -39,6 +64,7 @@ class Dashboard extends Component{
       this.setState({
         loading:false
     })
+    console.log(this.props.params.id)
     })
     .catch((e)=>{
         this.setState({
@@ -49,35 +75,32 @@ class Dashboard extends Component{
     
 }
     render(){
+      let {stories,loadingStory} = this.state;
+      let storyTable;
+      if(!loadingStory)
+      storyTable = stories.map((story,index)=>{
+        return(
+          <li>
+            <Link to={`/story/${story.storyId}`} activeClassName="active">
+              <i className="fas fa-list-alt"></i>
+              <span className="menu-text">{story.title}</span>
+            </Link>
+          </li>
+        )
+      })
+      else
+
+      storyTable= <li>
+        <div className="loader">
+         <Loader/>
+          </div>
+      </li>
         return(
             <div>
                   <side>
                       <span className="logo">EMRE</span>
                       <ul className="side-menu">
-                        <li>
-                          <a href="/">
-                            <i className="fas fa-list-alt"></i>
-                            <span className="menu-text">Manage</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/">
-                            <i className="fas fa-list-alt"></i>
-                            <span className="menu-text">Masnage</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/">
-                            <i className="fas fa-list-alt"></i>
-                            <span className="menu-text">Manage</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/">
-                            <i className="fas fa-list-alt"></i>
-                            <span className="menu-text">Manage</span>
-                          </a>
-                        </li>
+                       {storyTable}
                       </ul>
                     </side>
                     <div className="con">
@@ -86,56 +109,13 @@ class Dashboard extends Component{
                     <div className="searchbar">
                       <input type="text" className="search" placeholder="Ara..."/>
                     </div>
-                    <div className="profilewidget"><AddUser/></div>
+                    <div className="profilewidget"><AddUser/><AddStory/></div>
                   </div>
                 </header>
               
                 <aside>
-                    <div className="container">
-                      <div className="space">
-                          <h2 className="story">Story</h2>
-                      </div>
-                        <div className="row">
-                          <div className="col-sm mcell mcolor1">
-                          <ul>
-                            <div className="mcell-title story">
-                                Backlog
-                                <Tooltips id="1" content="You can do what you want to do with this column" placement="top" />                            </div>
-                            <Task tasks={this.state.tasks} loading={this.state.loading} filter="1"/>
-                              </ul>
-                          </div>
-                          <div className="col-sm mcell mcolor2">
-                              <ul id="inprogress">
-                              <div className="mcell-title story">
-                                TODO
-                                <Tooltips id="2" content="You can do what you want to do with this column" placement="top" />
-                              </div>
-                              <Task tasks={this.state.tasks} loading={this.state.loading} filter="2"/>
-                              </ul>
-                          </div>
-                          
-                          <div className="col-sm mcell mcolor3">
-                              <ul>
-                              <div className="mcell-title story">
-                                In Progress
-                                <Tooltips id="3" content="You can do what you want to do with this column" placement="top" />                              </div>
-                              <Task tasks={this.state.tasks} loading={this.state.loading} filter="3"/>
-                          </ul>
-                          </div>
-                          <div className="col-sm mcell mcolor4">
-                          <ul id="done2">
-                              <div className="mcell-title story">
-                                Done
-                                <Tooltips id="4" content="You can do what you want to do with this column" placement="top" />                              </div>
-                              <Task tasks={this.state.tasks} loading={this.state.loading} filter="4"/>
-                              </ul>
-                            </div>
-                        </div>
-                      </div>
+                    <Story storyType={this.props.params.id} tasks={this.state.tasks} loading={this.state.loading}/>
                 </aside>
-       
-
-        
                 </div>
                 </div>
         )

@@ -2,16 +2,14 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter,Input,FormGroup,Label } from 'reactstrap';
 import axios from 'axios'
 
-class AddUser extends React.Component {
+class AddStory extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
-      username:'',
-      name:'',
-      lastname:'',
-      profilephoto:'5af1921c0fe5703dd4a463ec',
-      loading:false
+      title:'',
+      createdBy:'',
+      count:2
     };
     
     this.toggle = this.toggle.bind(this);
@@ -26,24 +24,36 @@ class AddUser extends React.Component {
      console.log(this.state.dueDate)
 }
 
+getStoryCount = () => {
+  axios.get(`/story/count`)
+  .then((r)=> {
+      this.setState({
+          count: r.data.count,
+          err:''
+      })
+  })
+  .catch((e)=>{
+      this.setState({
+          err: e
+      })
+  })
+}
   handleClick = event => {
-    
-    axios.post('/users', {
-      username:this.state.username,
-      name:this.state.name,
-      lastName:this.state.lastname,
-      profilephoto:this.state.profilephoto
+    this.getStoryCount()
+    axios.post('/story', {
+      title:this.state.title,
+      createdBy:this.state.createdBy,
+      storyId:this.state.count
     })
     .then((response)=> {
-      if(response.data.message)
-        alert(response.data.message)
+      if(response.data.error)
+        alert(response.data.error)
       else{
         this.toggle();
         this.setState({
-          username:null,
-          name:null,
-          lastname:null,
-          profilephoto:null,
+          title:null,
+          createdBy:null,
+          storyId:null,
           loading:false
         })
       }
@@ -52,7 +62,6 @@ class AddUser extends React.Component {
     .catch((error)=> {
       console.log(error);
     });
-    
   }
   toggle() {
     this.setState({
@@ -64,16 +73,14 @@ class AddUser extends React.Component {
 
     return (
       <div>
-        <i className="fas fa-plus-circle" onClick={this.toggle}></i>
+        <i className="fas fa-th-large" onClick={this.toggle}></i>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>
-            Add User
+            Add Story
           </ModalHeader>
           <ModalBody>
-          <FormGroup><Label for="username">Username(*):</Label><Input type="text" name="username" onChange={this.handleInput.bind(this)}/></FormGroup>
-          <FormGroup><Label for="name">Name(*):</Label><Input type="text" name="name" onChange={this.handleInput.bind(this)}/></FormGroup>
-          <FormGroup><Label for="lastName">Last Name(*):</Label><Input type="text" name="lastName" onChange={this.handleInput.bind(this)}/></FormGroup>
-          <FormGroup><Label for="profilePhoto">Profile Photo URL(*):</Label><Input type="text" name="profilePhoto" onChange={this.handleInput.bind(this)}/></FormGroup>
+          <FormGroup><Label for="title">Story Title(*):</Label><Input type="text" name="title" onChange={this.handleInput.bind(this)}/></FormGroup>
+          <FormGroup><Label for="createdBy">Created by(*):</Label><Input type="text" name="createdBy" onChange={this.handleInput.bind(this)}/></FormGroup>
           
           </ModalBody>
           <ModalFooter>
@@ -86,4 +93,4 @@ class AddUser extends React.Component {
   }
 }
 
-export default AddUser;
+export default AddStory;
