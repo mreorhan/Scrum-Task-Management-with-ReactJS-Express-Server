@@ -88,9 +88,40 @@ side {
     outline: 0;
     border: 0;
 }
-.searchbar{
-
+.searchbar {
+    width: 96%;
+    display: inline-block;
 }
+.profilewidget {
+    display: inline-block;
+    width: 4%;
+}   
+.profilewidget i {
+    cursor: pointer;
+    font-size: 25px;
+    top: 6px!important;
+    color: #fff;
+}
+.btnDashboard{margin-left: 22px}
+.colorBlue,.colorGreen,.colorGrey{
+    width: 16px;
+    height: 26px;
+    display: inline-table;
+    position: relative;
+    top: 32px;
+    margin-top: -32px;
+    border-radius: 4px;
+}
+.colorBlue{
+    background-color: #e91e63
+}
+.colorGreen{
+    background-color: #4caf50
+}
+.colorGrey{
+    background-color: #607d8b
+}
+
 .space{
     margin: 15px 0 20px
 }
@@ -155,6 +186,18 @@ i.fas.fa-plus-circle {
     margin: 10px -6px;
     border-radius: 4px;
     box-shadow: 2px 2px 8px #8080800d;
+    list-style-type: none;
+}
+.ui-draggable{
+    width: 300px;
+}
+.ui-droppable-hover{
+    background: #ebeff3;
+    min-height: 186px;
+    width: 300px;
+}
+.ui-state-default{
+    cursor: -webkit-grab!important;
 }
 .task-name,.task-details,.task-contributors{
     display: block;
@@ -193,6 +236,19 @@ i.fas.fa-plus-circle {
 .container {
     max-width: 1350px;
 }}
+@media (max-width: 800px){
+    .con {
+        width: 100%;
+        left: 0;
+    }
+    side {
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        display: none;
+    }
+}
+
 
 /*Loader*/
 .loader {
@@ -207,7 +263,7 @@ i.fas.fa-plus-circle {
     padding-top: 100%;
   }
   
-  .circular {
+  .loader svg {
     -webkit-animation: rotate 2s linear infinite;
     animation: rotate 2s linear infinite;
     height: 100%;
@@ -223,12 +279,14 @@ i.fas.fa-plus-circle {
     margin: auto;
   }
   
-  .path {
+  .loader svg circle {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
     -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
     animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
     stroke-linecap: round;
+    stroke-width: 4;
+    stroke-miterlimit:10
   }
   @-webkit-keyframes 
 rotate {  100% {
