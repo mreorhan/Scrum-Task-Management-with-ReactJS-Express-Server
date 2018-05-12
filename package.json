@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"cd server && yarn start\" \"cd client && yarn start\""
+    	 "start": "concurrently \"cd server && yarn start\" \"cd client && yarn start\""
   },
   "dependencies": {
-    "concurrently": "^3.5.1"
+	"concurrently": "^3.5.1"
   }
 }
