@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    	 "start": "concurrently \"cd client && npm start\""
+	"build": "concurrently \"cd client && npm build\" \"cd server && npm build\"",
+    "install": "(cd client && npm) && (cd server && npm)",
+    "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\"",
+    "start:prod": "cd server && npm start:prod"
   },
   "dependencies": {
 	"concurrently": "^3.5.1"
