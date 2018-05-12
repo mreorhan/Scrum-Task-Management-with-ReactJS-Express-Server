@@ -4,6 +4,8 @@
 
 This project powered by React.JS and Express.
 
+![Screenshot](https://lh3.googleusercontent.com/qd0MI1JKjOfd2Z9KDx3ZMsGrHPqma0J5oLfN9cn8XjOJ6EQXCMQVfko67YxvmnMLFZbBge0_m8ENHjpAeOKj=w1920-h917-rw)
+
 Open command line and apply that steps:
 -----------
 ```
