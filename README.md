@@ -6,9 +6,12 @@ This project powered by React.JS and Express.
 
 ![Screenshotv](http://oi63.tinypic.com/29e5fnk.jpg)
 
-Open command line and apply that steps:
+Get Started
 -----------
+
 ```
+Open command line and apply that steps:
+
 1. Step
  git clone https://github.com/mreorhan/Scrum-Task-Management-with-ReactJS-Express-Server/ scrumtaskmanagement
 
@@ -16,14 +19,9 @@ Open command line and apply that steps:
  cd scrumtaskmanagement
  npm install
  npm start
-
-3. Step (open new command line)
- cd scrumtaskmanagement/client
- npm install
- npm start
-
-4. Step
- You can start working on which explorer window.
+ 
+3. Step
+ You can start working on any explorer window.
 ```
 
 
