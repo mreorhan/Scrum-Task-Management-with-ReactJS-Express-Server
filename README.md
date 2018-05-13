@@ -29,18 +29,17 @@ Open command line and apply that steps:
 
 HTTP Request
 -----------
-GET: http://localhost:5000/tasks     --> Show all tasks
+http://localhost:5000/tasks
 
-POST: http://localhost:5000/tasks    --> Add new task
-[headers]:
-	{
-		title:        string *required*,
-		content:      string,
-		status:       number *1,2,3,4*,
-		dueDate:      Date,
-		createdBy:    Object.Id
-		contributors: Object.Id
-	}
+| Route | HTTP Verb	 | POST body	 | Description	 |
+| --- | --- | --- | --- |
+| /tasks | `GET` | Empty | List all tasks. |
+| /tasks | `POST` | {'title':'task title', 'content':'task content', status:1, date:Date.now, color:SpecialField, dueDate:Date, createdBy:ObjectId, contributors: Object.Id } | Create a new task. |
+| /tasks/update/:id | `PUT` | {'title':'task title', 'content':'task content', status:1, date:Date.now, color:SpecialField, dueDate:Date, createdBy:ObjectId, contributors: Object.Id } | Update task by id. |
+| /tasks/delete/:id | `DELETE` | Empty | Delete task by id. |
+| /users | `GET` | Empty | List all users. |
+| /users | `POST` | {'username':'emreorhan', 'name':'Emre', lastName:'Orhan, createdBy:ObjectId, profilePhoto:'emre.jpg' } | Create a new user. |
+| /story | `GET` | Empty | List all projects. |
 
 GET: http://localhost:3000/users   --> Show all users
   
