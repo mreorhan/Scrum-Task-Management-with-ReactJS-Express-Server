@@ -6,42 +6,35 @@ export default class Story extends Component{
         return(
             <div className="container">
                       <div className="space">
-                          <h2 className="story">Story</h2>
+                          <h2 className="story">{this.props.storyName}</h2>
                       </div>
                         <div className="row">
                           <div className="col-sm mcell mcolor1">
-                          <ul>
                             <div className="mcell-title story">
-                                Backlog
-                                <Tooltips id="1" content="You can do what you want to do with this column" placement="top" storyType={this.props.storyType}/>                            </div>
-                            <Task tasks={this.props.tasks} loading={this.props.loading} filter="1"/>
-                              </ul>
+                            <b class="fas fa-lightbulb"/> Backlog
+                                <Tooltips id="1" content="You can do what you want to do with this column" placement="top" storyType={this.props.storyType}/>
+                            </div>
+                                <Task tasks={this.props.tasks} loading={this.props.loading} filter="1"/>
                           </div>
                           <div className="col-sm mcell mcolor2">
-                              <ul id="inprogress">
                               <div className="mcell-title story">
-                                TODO
+                              <b class="fas fa-bars"/> TODO
                                 <Tooltips id="2" content="You can do what you want to do with this column" placement="top" storyType={this.props.storyType}/>
                               </div>
-                              <Task  tasks={this.props.tasks} loading={this.props.loading} filter="2"/>
-                              </ul>
+                              <Task tasks={this.props.tasks} loading={this.props.loading} filter="2"/>
                           </div>
                           
                           <div className="col-sm mcell mcolor3">
-                              <ul>
                               <div className="mcell-title story">
-                                In Progress
+                              <b class="fas fa-spinner"></b> In Progress
                                 <Tooltips id="3" content="You can do what you want to do with this column" placement="top" storyType={this.props.storyType}/>                              </div>
                               <Task tasks={this.props.tasks} loading={this.props.loading} filter="3"/>
-                          </ul>
                           </div>
                           <div className="col-sm mcell mcolor4">
-                          <ul id="done2">
                               <div className="mcell-title story">
-                                Done
+                              <b class="fas fa-check"/> Done
                                 <Tooltips id="4" content="You can do what you want to do with this column" placement="top" storyType={this.props.storyType}/>                              </div>
                               <Task tasks={this.props.tasks} loading={this.props.loading} filter="4"/>
-                              </ul>
                             </div>
                         </div>
                       </div>

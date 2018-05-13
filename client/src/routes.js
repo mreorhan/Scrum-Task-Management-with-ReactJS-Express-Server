@@ -1,6 +1,7 @@
 import React from 'react'
 import {Route,IndexRoute} from 'react-router'
 import App from './components/dashboard'
+import About from './components/about';
 const IndexPage = () => {
 
     return <div>Welcome to Scrum Master<br/><a href="/story/1">Homepage</a></div>
@@ -12,6 +13,7 @@ const NotFoundPage = () => {
 export default(
     <Route>
         <Route path='/story/:id' exact component={App}/>
+        <Route path='/about' exact component={About}/>
         <IndexRoute component={IndexPage} />
         <Route path='*' exact component={NotFoundPage}/>
     </Route>

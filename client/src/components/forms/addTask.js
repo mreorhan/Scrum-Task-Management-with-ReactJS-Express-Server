@@ -112,7 +112,7 @@ getUsers(){
     }
     return (
       <div>
-        <i className="fas fa-plus-circle" onClick={this.toggle}></i>
+        <i className="fas fa-plus-circle customAddTask" onClick={this.toggle}></i>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>
             Create a New Task to {this.changeColumnTitle(this.props.status)}
@@ -145,8 +145,8 @@ getUsers(){
               <i className="fas fa-clock"></i> Due Date: <input name="dueDate" id="dueDate" type="datetime-local" onChange={this.handleInput.bind(this)}/>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.handleClick.bind(this)}>Add</Button>
-            <Button color="secondary" onClick={this.toggle}>Close</Button>
+            <Button color="primary" onClick={this.handleClick.bind(this)}><i className="fas fa-plus-circle"></i> Add</Button>
+            <Button color="secondary" onClick={this.toggle}><i className="fas fa-times-circle"></i> Close</Button>
           </ModalFooter>
         </Modal>
       </div>

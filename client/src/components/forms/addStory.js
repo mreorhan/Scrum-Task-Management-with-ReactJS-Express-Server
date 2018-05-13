@@ -73,7 +73,7 @@ getStoryCount = () => {
 
     return (
       <div>
-        <i className="fas fa-th-large" onClick={this.toggle}></i>
+        <Button color="secondary" onClick={this.toggle}><i className="fas fa-plus-circle"/> Add Project</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>
             Add Story
@@ -84,8 +84,8 @@ getStoryCount = () => {
           
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.handleClick.bind(this)}>Add</Button>
-            <Button color="secondary" onClick={this.toggle}>Close</Button>
+            <Button color="primary" onClick={this.handleClick.bind(this)}><i className="fas fa-plus-circle"></i> Add</Button>
+            <Button color="secondary" onClick={this.toggle}><i className="fas fa-times-circle"></i> Close</Button>
           </ModalFooter>
         </Modal>
       </div>

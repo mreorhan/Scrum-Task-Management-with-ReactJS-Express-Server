@@ -1,10 +1,11 @@
 import React,{Component} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router'
-import AddUser from './forms/addUser'
 import Story from './story'
 import AddStory from './forms/addStory';
 import Loader from './loader'
+import Header from './common/header'
+
 class Dashboard extends Component{
   constructor(props, context) {
     super(props, context);
@@ -21,17 +22,15 @@ class Dashboard extends Component{
     
     this.getData = this.getData.bind(this)
   }
-  show = dimmer => () => this.setState({ dimmer, open: true })
-  close = () => this.setState({ open: false })
-
+  
   componentDidMount = ()=>{
     this.getStoryDetails();
     this.getData();
     setInterval(() => {
       this.getData();
   }, 2000);
-
   }
+
   getStoryDetails = () => {
     axios.get(`/story`)
     .then((r)=> {
@@ -47,7 +46,8 @@ class Dashboard extends Component{
   })
     .catch((e)=>{
         this.setState({
-            err2: e
+          loadingStory:false,
+          err2: e
         })
     })
    
@@ -55,19 +55,26 @@ class Dashboard extends Component{
   getData = () => {
     axios.get(`/tasks/${this.props.params.id}`)
     .then((r)=> {
-        this.setState({
-            tasks: r.data,
-            err:''
-        })
+      this.setState({
+          tasks: r.data,
+          err:''
+      })
     })
     .then(()=>{
       this.setState({
         loading:false
-    })
-    console.log(this.props.params.id)
+      })
     })
     .catch((e)=>{
+      if (!e.response){
+      this.setState({
+        loading:true,
+        err: e
+    })
+  }
+      else
         this.setState({
+            loading:false,
             err: e
         })
     })
@@ -82,42 +89,37 @@ class Dashboard extends Component{
         return(
           <li>
             <Link to={`/story/${story.storyId}`} activeClassName="active">
-              <i className="fas fa-list-alt"></i>
+              <i key={index} className="fas fa-list-alt"></i>
               <span className="menu-text">{story.title}</span>
             </Link>
           </li>
         )
       })
       else
-
-      storyTable= <li>
+      storyTable = <li>
         <div className="loader">
          <Loader/>
           </div>
       </li>
         return(
             <div>
-                  <side>
-                      <span className="logo">EMRE</span>
-                      <ul className="side-menu">
-                       {storyTable}
-                      </ul>
-                    </side>
-                    <div className="con">
-                <header>
-                  <div className="container">
-                    <div className="searchbar">
-                      <input type="text" className="search" placeholder="Ara..."/>
-                    </div>
-                    <div className="profilewidget"><AddUser/><AddStory/></div>
-                  </div>
-                </header>
-              
-                <aside>
-                    <Story storyType={this.props.params.id} tasks={this.state.tasks} loading={this.state.loading}/>
-                </aside>
+              <side>
+                <span className="logo">Scrum Beta</span>
+                <ul className="side-menu">
+                  {storyTable}
+                </ul>
+                <div className="otherMenu">
+                  <AddStory/>
                 </div>
-                </div>
+              </side>
+              <div className="con">
+                <Header/>
+                  <aside>
+                      <Story storyName={"this.state.stories"} storyType={this.props.params.id} tasks={this.state.tasks} loading={this.state.loading}/>
+                  </aside>
+
+              </div>
+            </div>
         )
     }
 }

@@ -10,7 +10,7 @@ class AddUser extends React.Component {
       username:'',
       name:'',
       lastname:'',
-      profilephoto:'5af1921c0fe5703dd4a463ec',
+      profilePhoto:'5af1921c0fe5703dd4a463ec',
       loading:false
     };
     
@@ -31,8 +31,8 @@ class AddUser extends React.Component {
     axios.post('/users', {
       username:this.state.username,
       name:this.state.name,
-      lastName:this.state.lastname,
-      profilephoto:this.state.profilephoto
+      lastName:this.state.lastName,
+      profilePhoto:this.state.profilePhoto
     })
     .then((response)=> {
       if(response.data.message)
@@ -42,8 +42,8 @@ class AddUser extends React.Component {
         this.setState({
           username:null,
           name:null,
-          lastname:null,
-          profilephoto:null,
+          lastName:null,
+          profilePhoto:null,
           loading:false
         })
       }
@@ -64,10 +64,10 @@ class AddUser extends React.Component {
 
     return (
       <div>
-        <i className="fas fa-plus-circle" onClick={this.toggle}></i>
+        <i className="fas fa-user-plus" onClick={this.toggle}></i>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>
-            Add User
+          <i className="fas fa-user-circle"></i> Add User
           </ModalHeader>
           <ModalBody>
           <FormGroup><Label for="username">Username(*):</Label><Input type="text" name="username" onChange={this.handleInput.bind(this)}/></FormGroup>
@@ -77,8 +77,8 @@ class AddUser extends React.Component {
           
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.handleClick.bind(this)}>Add</Button>
-            <Button color="secondary" onClick={this.toggle}>Close</Button>
+            <Button color="primary" onClick={this.handleClick.bind(this)}><i className="fas fa-plus-circle"></i> Add</Button>
+            <Button color="secondary" onClick={this.toggle}><i className="fas fa-times-circle"></i> Close</Button>
           </ModalFooter>
         </Modal>
       </div>
