@@ -87,9 +87,9 @@ class Dashboard extends Component{
       if(!loadingStory)
       storyTable = stories.map((story,index)=>{
         return(
-          <li>
+          <li key={index}>
             <Link to={`/story/${story.storyId}`} activeClassName="active">
-              <i key={index} className="fas fa-list-alt"></i>
+              <i className="fas fa-list-alt"></i>
               <span className="menu-text">{story.title}</span>
             </Link>
           </li>
@@ -103,7 +103,7 @@ class Dashboard extends Component{
       </li>
         return(
             <div>
-              <side>
+              <div className="side">
                 <span className="logo">Scrum Beta</span>
                 <ul className="side-menu">
                   {storyTable}
@@ -111,7 +111,7 @@ class Dashboard extends Component{
                 <div className="otherMenu">
                   <AddStory/>
                 </div>
-              </side>
+              </div>
               <div className="con">
                 <Header/>
                   <aside>

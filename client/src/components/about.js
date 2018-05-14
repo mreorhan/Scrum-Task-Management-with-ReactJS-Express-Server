@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import {Button } from 'reactstrap'
 import Header from './common/header'
 class About extends Component{
 
@@ -10,7 +9,10 @@ class About extends Component{
               <Header/>
               
                   <aside className="container">
-                    about us
+                    <div className="col-sm aboutUs">
+                        <h2 className="mcell-title story">Abous Us</h2>
+                        <div className="padding20">@mrecoder</div>
+                    </div>
                   </aside>
             </div>
         )

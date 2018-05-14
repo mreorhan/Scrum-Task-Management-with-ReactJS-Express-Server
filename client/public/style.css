@@ -50,7 +50,7 @@ input[type=date], input[type=datetime-local], input[type=month], input[type=time
     border-radius: 4px;
     padding: 2px;
 }
-side {
+.side {
     position: absolute;
     left: 0;
     top: 0;
@@ -125,13 +125,17 @@ li .active:before {
 .mainMenu ul li:hover {
     border-bottom:3px solid #007bff
 }
+.mainMenu .active {
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 13px;
+}
 .profilewidget div {
     display: inline-block;
-    margin-left: 12px;
 }
 .profilewidget {
     display: inline-block;
     width: 6%;
+    text-align: right;
 }   
 .profilewidget div i {
     cursor: pointer;
@@ -139,9 +143,12 @@ li .active:before {
     color: #b8c9d3;
     position: relative;
 }
-.btnDashboard{margin-left: 22px}
+.mainMenuText {
+    padding-left: 10px;
+}
+.btnDashboard{margin-left: 14px}
 .colorBlue,.colorGreen,.colorGrey{
-    width: 16px;
+    width: 8px;
     height: 26px;
     display: inline-table;
     position: relative;
@@ -183,6 +190,7 @@ li .active:before {
     float: right;
     font-size: 18px;
     padding: 3px;
+    cursor: pointer;
 }
 .mcell {
     background-color: #f5f8fc;
@@ -234,7 +242,7 @@ li .active:before {
     display: grid;
 }
 .ui-draggable{
-    width: 304px;
+    width: 308px;
 }
 .ui-droppable-hover{
     background: #ebeff3;
@@ -273,6 +281,15 @@ li .active:before {
 .task-contributors span{
     text-align: left
 }
+.aboutUs {
+    background: #fff;
+    padding: 0px 14px 0px 14px;
+    margin-top: 50px;
+    border-radius: 4px;
+}
+.padding20 {
+    padding: 20px;
+}
 @media (min-width: 1200px){
 .container {
     max-width: 1200px;
@@ -286,11 +303,17 @@ li .active:before {
         width: 100%;
         left: 0;
     }
-    side {
+    .side {
         position: fixed;
         width: 100%;
         z-index: 999;
         display: none;
+    }
+    .mainMenuText {
+        display: none
+    }
+    .ui-draggable {
+        width: calc(100% + 12px);
     }
 }
 
