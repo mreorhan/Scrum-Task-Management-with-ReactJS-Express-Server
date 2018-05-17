@@ -52,7 +52,4 @@ See [Contributors](CONTRIBUTORS.md).
 
 [npm-passing-image]: https://travis-ci.org/caolan/async.svg?branch=master
 [npm-passing-url]: https://travis-ci.org/caolan/async
-
-v0.1.0 Screenshot
-![Screenshot](https://lh3.googleusercontent.com/qd0MI1JKjOfd2Z9KDx3ZMsGrHPqma0J5oLfN9cn8XjOJ6EQXCMQVfko67YxvmnMLFZbBge0_m8ENHjpAeOKj=w1920-h917-rw)
-
+### [Online Demo](https://www.google.com)
