@@ -7,6 +7,7 @@
     "jquery": "^3.3.1",
     "jquery-ui-dist": "^1.12.1",
     "moment": "^2.22.1",
+    "npm": "^6.4.1",
     "react": "^16.3.2",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.2",
