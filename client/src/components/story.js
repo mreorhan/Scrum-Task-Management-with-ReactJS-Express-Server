@@ -6,7 +6,7 @@ export default class Story extends Component{
         return(
             <div className="container">
                       <div className="space">
-                          <h2 className="story">{this.props.storyName}</h2>
+                          <h2 className="story">{this.props.storyName[0] ? this.props.storyName[0].title : "Loading..."}</h2>
                       </div>
                         <div className="row">
                           <div className="col-sm mcell mcolor1">

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route,IndexRoute} from 'react-router'
+import {Route} from 'react-router'
 import App from './components/dashboard'
 import About from './components/about';
 const IndexPage = () => {
@@ -14,7 +14,7 @@ export default(
     <Route>
         <Route path='/story/:id' exact component={App}/>
         <Route path='/about' exact component={About}/>
-        <IndexRoute component={IndexPage} />
+        <Route exact path="/" component={IndexPage} />
         <Route path='*' exact component={NotFoundPage}/>
     </Route>
 )

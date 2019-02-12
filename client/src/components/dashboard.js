@@ -115,7 +115,7 @@ class Dashboard extends Component{
               <div className="con">
                 <Header/>
                   <aside>
-                      <Story storyName={"this.state.stories"} storyType={this.props.params.id} tasks={this.state.tasks} loading={this.state.loading}/>
+                      <Story storyName={this.state.stories.filter(i=>i.storyId===parseInt(this.props.router.params.id))} storyType={this.props.params.id} tasks={this.state.tasks} loading={this.state.loading}/>
                   </aside>
 
               </div>

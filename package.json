@@ -3,12 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-	"build": "concurrently \"cd client && npm build\" \"cd server && npm build\"",
+    "build": "concurrently \"cd client && npm build\" \"cd server && npm build\"",
     "install": "(cd client && npm) && (cd server && npm)",
     "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\"",
     "start:prod": "cd server && npm start:prod"
   },
   "dependencies": {
-	"concurrently": "^3.5.1"
+    "concurrently": "^3.5.1",
+    "debug": "^4.1.1",
+    "express": "^4.16.4",
+    "http-errors": "^1.7.1",
+    "mongoose": "^5.4.11",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10",
+    "pug": "^2.0.3"
   }
 }
