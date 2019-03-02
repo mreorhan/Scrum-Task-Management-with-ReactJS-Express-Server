@@ -1,4 +1,4 @@
-# Scrum Task Management
+# Scrum & Agile Task Management
 
 [![Version][npm-image]][npm-url] [![Version][npm-passing-image]][npm-passing-url]
 
