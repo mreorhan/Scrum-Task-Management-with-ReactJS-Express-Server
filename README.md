@@ -52,4 +52,4 @@ See [Contributors](CONTRIBUTORS.md).
 
 [npm-passing-image]: https://travis-ci.org/caolan/async.svg?branch=master
 [npm-passing-url]: https://travis-ci.org/caolan/async
-### [Online Demo](https://scrummastertaskmanager.herokuapp.com/story/1)
+### [Online Demo](https://scrum-agile-task-manager.firebaseapp.com/)
