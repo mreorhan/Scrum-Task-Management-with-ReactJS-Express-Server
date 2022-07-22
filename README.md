@@ -7,7 +7,8 @@ Scrum Masters can create tasks for employees in this project.
 
 This project powered by React.JS and Express.
 
-![Screenshot]([http://oi63.tinypic.com/29e5fnk.jpg](https://user-images.githubusercontent.com/17215194/180495928-3eab3305-1880-4383-a7d8-4ce70d2da4d3.png))
+<img width="1372" alt="Screen Shot 2022-07-22 at 20 48 22" src="https://user-images.githubusercontent.com/17215194/180496257-2b149546-d254-4a27-a6e8-4669054ce143.png">
+
 
 Get Started
 -----------
